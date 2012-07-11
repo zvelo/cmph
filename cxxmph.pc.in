@@ -1,0 +1,12 @@
+url=http://cmph.sourceforge.net/
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: cxxmph
+Description: minimal perfect hashing c++11 library
+Version: @VERSION@
+Libs: -L${libdir} -lcxxmph
+Cflags: -std=c++0x -I${includedir}
+URL: ${url}

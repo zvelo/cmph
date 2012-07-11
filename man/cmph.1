@@ -1,0 +1,67 @@
+.TH CMPH "1" "October 2007" "cmph 0.6" "User Commands"
+.SH NAME
+cmph \- minimum perfect hashing tool
+.SH SYNOPSIS
+.B cmph
+[-v] [-h] [-V] [-k nkeys] [-f hash_function] [-g [-c value][-s seed] ] [-a algorithm] [-M memory_in_MB] [-b BRZ_parameter] [-d tmp_dir] [-m file.mph] keysfile
+.SH DESCRIPTION
+.PP
+Command line tool to generate and query minimal perfect hash functions.
+.PP
+Please refer to http://cmph.sf.net for full documentation.
+.TP
+\fB\-h\fR
+Print an help message
+.TP
+\fB\-c\fR
+This value determines: the number of vertices in the graph for the algorithms BMZ and CHM; the number of bits per key required in the FCH algorithm
+.TP
+\fB\-a\fR
+Algorithm. Valid values are: bmz, bmz8, chm, brz, fch
+.TP
+\fB\-f\fR
+hash function (may be used multiple times). valid values are: djb2, fnv, jenkins, sdbm
+.TP
+\fB\-V\fR	
+Print version number and exit
+.TP
+\fB\-v\fR
+Increase verbosity (may be used multiple times)
+.TP
+\fB\-k\fR
+Number of keys
+.TP
+\fB\-g\fR
+Generation mode
+.TP
+\fB\-s\fR
+Random seed
+.TP
+\fB\-m\fR
+Minimum perfect hash function file 
+.TP
+\fB\-M\fR
+Main memory availability (in MB)
+.TP
+\fB\-d\fR
+Temporary directory used in brz algorithm 
+.TP
+\fB\-b\fR
+Parameter of BRZ algorithm to make the maximal number of keys in a bucket lower than 256
+.TP
+\fBkeysfile\fR
+Line separated file with keys
+.SH EXAMPLE
+$ # Using the default algorithm (chm) for constructing a mphf 
+.br
+$ # for keys in file keys_file. Lines in keys_file _must_ be unique.
+.br
+$ ./cmph -v -g keys_file
+.br
+$ # Query id of keys in the file keys_query
+.br
+$ ./cmph -v -m keys_file.mph keys_query
+.SH AUTHOR
+This manual page was written by Enrico Tassi <gareuselesinge@users.sourceforge.net>,
+for the Debian project (but may be used by others).
+
